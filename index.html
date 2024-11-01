@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Video Player</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        #videoPlayer {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+            border: 2px solid #333;
+            border-radius: 8px;
+        }
+        .quotes {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6;
+        }
+        .quote {
+            margin: 10px 0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Local Video Player</h1>
+        <input type="file" id="videoInput" accept="video/*">
+        <video id="videoPlayer" controls>
+            Your browser does not support the video tag.
+        </video>
+        <div class="quotes">
+            <div class="quote">"Indeed, with hardship comes ease." - Quran 94:6</div>
+            <div class="quote">"The best among you are those who have the best manners and character." - Prophet Muhammad (PBUH)</div>
+            <div class="quote">"Do not lose hope, nor be sad." - Quran 3:139</div>
+            <div class="quote">"Success is not final, failure is not fatal: it is the courage to continue that counts." - Winston Churchill</div>
+            <div class="quote">"Trust in Allah, but tie your camel." - Islamic Proverb</div>
+            <div class="quote">"Believe you can and you're halfway there." - Theodore Roosevelt</div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('videoInput').addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const fileURL = URL.createObjectURL(file);
+                const videoPlayer = document.getElementById('videoPlayer');
+                videoPlayer.src = fileURL;
+                videoPlayer.load();
+                videoPlayer.play();
+            }
+        });
+    </script>
+</body>
+</html>
