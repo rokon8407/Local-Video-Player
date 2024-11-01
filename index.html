@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Local Video Player</title>
+    <title>Video Player</title>
     <style>
         body {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -16,41 +15,51 @@
             font-family: Arial, sans-serif;
         }
         .container {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+        }
+        .left-side {
+            flex: 0 0 80%; /* Occupies 80% of the width */
             text-align: center;
+            padding-right: 20px;
+        }
+        .right-side {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-size: 1.2em;
         }
         #videoPlayer {
             width: 100%;
-            max-width: 600px;
-            margin-top: 20px;
+            max-width: 800px;
             border: 2px solid #333;
             border-radius: 8px;
-        }
-        .quotes {
             margin-top: 20px;
-            font-size: 1.1em;
-            color: #333;
-            line-height: 1.6;
         }
-        .quote {
-            margin: 10px 0;
-            font-style: italic;
+        .fileInput {
+            width: 80%;
+            padding: 10px;
+            font-size: 1em;
+            margin-top: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Local Video Player</h1>
-        <input type="file" id="videoInput" accept="video/*">
-        <video id="videoPlayer" controls>
-            Your browser does not support the video tag.
-        </video>
-        <div class="quotes">
-            <div class="quote">"Indeed, with hardship comes ease." - Quran 94:6</div>
-            <div class="quote">"The best among you are those who have the best manners and character." - Prophet Muhammad (PBUH)</div>
-            <div class="quote">"Do not lose hope, nor be sad." - Quran 3:139</div>
-            <div class="quote">"Success is not final, failure is not fatal: it is the courage to continue that counts." - Winston Churchill</div>
-            <div class="quote">"Trust in Allah, but tie your camel." - Islamic Proverb</div>
-            <div class="quote">"Believe you can and you're halfway there." - Theodore Roosevelt</div>
+        <div class="left-side">
+            <h1>Video Player</h1>
+            <input type="file" id="videoInput" accept="video/*" class="fileInput">
+            <video id="videoPlayer" controls>
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="right-side">
+            <!-- Right side intentionally left empty -->
         </div>
     </div>
     <script>
@@ -67,3 +76,4 @@
     </script>
 </body>
 </html>
+
